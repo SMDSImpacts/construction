@@ -12,7 +12,7 @@ const Agents: React.FC = () => {
   
   useEffect(() => {
     (async () => {
-      const app = new Realm.App({ id: process.env.NEXT_PUBLIC_REALM_APP_ID});
+      const app = new Realm.App({id: "citycenter-ossdi" });
       const credentials = Realm.Credentials.anonymous();
       try {
         const user = await app.logIn(credentials);
