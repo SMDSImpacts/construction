@@ -1,0 +1,377 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+*/
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.main:before {
+  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
+  position: absolute;
+  content: "";
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.main:after {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.4;
+  filter: invert(1);
+}
+
+.gradient {
+  height: fit-content;
+  z-index: 3;
+  width: 100%;
+  max-width: 640px;
+  background-image: radial-gradient(
+      at 27% 37%,
+      hsla(215, 98%, 61%, 1) 0px,
+      transparent 0%
+    ),
+    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
+    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) saturate(150%);
+  top: 80px;
+  opacity: 0.15;
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
+
+.flyer {
+  display: flexbox;
+  position: right;
+  align-content: right;
+  width: 30%;
+}
+
+.image1 {
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  z-index: 1;
+  background-color: plum;
+  box-shadow: 6px 6px 6px rgb(171, 164, 164);
+}
+
+.image2 {
+  position: absolute;
+  top: 27px;
+  left: 180px;
+  z-index: 3;
+}
+
+.image3 {
+  position: absolute;
+  top: 170px;
+  left: 150px;
+  z-index: 2;
+  background-color: plum;
+  box-shadow: 6px 6px 6px rgb(171, 164, 164);
+}
+
+/* Tailwind Styles */
+
+.app {
+  @apply relative z-10 flex flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+
+.custom-btn {
+  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
+}
+
+/* START: Hero styles */
+.hero {
+  @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto;
+}
+
+.hero__title {
+  @apply 2xl:text-[42px] sm:text-[34px] text-[24px] font-extrabold;
+}
+
+.hero__subtitle {
+  @apply text-[20px] font-light mt-5;
+}
+
+.hero__image-container {
+  @apply xl:flex-[1.0] flex justify-end items-end w-full;
+}
+
+.hero__image {
+  @apply relative xl:w-full w-[50%] xl:h-full h-[250px] z-0;
+}
+
+.hero__image-overlay {
+  @apply absolute xl:-top-24 xl:-right-1/2 -right-1/4 bg-repeat-round -z-10 w-full xl:h-screen h-[590px] overflow-hidden;
+}
+
+.black_btn {
+  @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+}
+
+.blue_btn {
+  @apply rounded-full border border-blue-600 bg-blue-600 py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+}
+
+.orange_btn {
+  @apply rounded-full border border-orange-600 bg-orange-600 py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+}
+
+.outline_btn {
+  @apply rounded-md border border-blue-700 bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter  mb-5 mr-2 ml-2;
+}
+
+.head_text {
+  @apply mt-5 text-7xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+}
+
+.orange_gradient {
+  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent text-xl font-extrabold sm:text-2xl lg:text-3xl;
+}
+
+.orange_gradients {
+  @apply bg-gradient-to-r from-orange-800 via-yellow-600 to-purple-800 bg-clip-text text-transparent text-xl font-extrabold sm:text-2xl lg:text-3xl;
+}
+
+.green_gradient {
+  @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
+}
+
+.green_gradient_btn {
+  @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent border border-green-600 rounded-lg px-3;
+}
+
+.blue_gradient {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+}
+
+.blue_gradient_btn {
+  @apply bg-gradient-to-r from-blue-400 to-green-500 bg-clip-text text-transparent border border-green-600 rounded-lg px-3;
+}
+
+.desc {
+  @apply mt-0 text-lg text-gray-600 sm:text-xl max-w-2xl font-bold;
+}
+
+.search_input {
+  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-2 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+}
+
+.copy_btn {
+  @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+}
+
+.glassmorphism {
+  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+}
+
+.prompt_layout {
+  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+}
+
+/* Feed Component */
+.feed {
+  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+}
+
+/* Form Component */
+.form_textarea {
+  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+.form_input {
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+/* Nav Component */
+.logo_text {
+  @apply max-sm:hidden font-satoshi font-semibold text-lg text-blue-600 tracking-wide; 
+}
+
+.dropdown {
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
+}
+
+.dropdown_link {
+  @apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-start {
+  @apply flex justify-start items-start;
+}
+
+.flex-end {
+  @apply flex justify-end items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+/* START: Agent styles */
+
+.home__text-container {
+  @apply flex flex-col items-start justify-start gap-y-2.5 text-black-100;
+}
+
+.home__filters {
+  @apply mt-12 w-full flex-between items-center flex-wrap gap-5;
+}
+
+.home__filter-container {
+  @apply flex justify-start flex-wrap items-center gap-2;
+}
+
+.home__agents-wrapper {
+  @apply grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 grid-cols-1 w-full gap-8 pt-14;
+}
+
+.home__error-container {
+  @apply mt-16 flex justify-center items-center flex-col gap-2;
+}
+/* END: Agents styles */
+
+/* START: Footer styles */
+.footer {
+  @apply flex flex-col text-black-100  mt-5 border-t border-gray-100;
+}
+
+.footer__links-container {
+  @apply flex max-md:flex-col flex-wrap justify-between gap-5 sm:px-16 px-6 py-10;
+}
+
+.footer__rights {
+  @apply flex flex-col justify-start items-start gap-6;
+}
+
+.footer__links {
+  @apply flex-1 w-full flex md:justify-end flex-wrap max-md:mt-10 gap-20;
+}
+
+.footer__link {
+  @apply flex flex-col gap-6 text-base min-w-[170px];
+}
+
+.footer__copyrights {
+  @apply flex justify-between items-center flex-wrap mt-10 border-t border-gray-100 sm:px-16 px-6 py-10;
+}
+
+.footer__copyrights-link {
+  @apply flex-1 flex sm:justify-end justify-center max-sm:mt-4 gap-10;
+}
+/* END: Footer styles */
+
+/* START: searchbar styles */
+.searchbar {
+  @apply flex items-center justify-start max-sm:flex-col w-full relative max-sm:gap-4 max-w-3xl;
+}
+
+.searchbar__item {
+  @apply flex-1 max-sm:w-full flex justify-start items-center relative;
+}
+
+.searchbar__input {
+  @apply w-full h-[48px] pl-12 p-4 bg-light-white rounded-r-full max-sm:rounded-full outline-none cursor-pointer text-sm;
+}
+/* END: searchbar styles */
+
+/* START: search cityCenters styles */
+.search-cityCenters {
+  @apply flex-1 max-sm:w-full flex justify-start items-center;
+}
+
+.search-cityCenters__input {
+  @apply w-full h-[48px] pl-12 p-4 rounded-l-full max-sm:rounded-full bg-light-white outline-none cursor-pointer text-sm;
+}
+
+.search-cityCenters__options {
+  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
+}
+
+.search-cityCenters__option {
+  @apply cursor-default select-none py-2 pl-10 pr-4;
+}
+/* END: search cityCenters styles */
+
+/* START: Car Card styles */
+.cc-card {
+  @apply flex flex-col p-6 justify-center items-start text-black-100 bg-primary-blue-100 hover:bg-white hover:shadow-md rounded-3xl;
+}
+
+.cc-card__content {
+  @apply w-full flex flex-col justify-between items-start gap-2;
+}
+
+.cc-card__content-title {
+  @apply max-sm:hidden font-semibold text-lg text-gray-500 tracking-wide mb-2;
+}
+
+.cc-card__price {
+  @apply flex mt-6 text-[32px] leading-[38px] font-extrabold;
+}
+
+.cc-card__price-dollar {
+  @apply self-start text-[14px] leading-[17px] font-semibold;
+}
+
+.cc-card__price-day {
+  @apply self-end text-[14px] leading-[17px] font-medium;
+}
+
+.cc-card__image {
+  @apply relative w-full h-40 my-3 object-contain;
+}
+
+.cc-card__icon-container {
+  @apply flex group-hover:invisible w-full justify-between text-grey;
+}
+
+.cc-card__icon {
+  @apply flex flex-col justify-center items-center gap-2;
+}
+
+.cc-card__icon-text {
+  @apply text-[14px] leading-[17px];
+}
+
+.cc-card__btn-container {
+  @apply hidden group-hover:flex absolute bottom-0 w-full z-10
+}
+/* END: Car Card styles */
+
