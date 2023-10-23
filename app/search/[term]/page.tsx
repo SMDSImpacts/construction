@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import * as Realm from "realm-web"
-import { CustomFilter, SearchBar, CityCenterCards } from "@components";
+import { SearchBar, CityCenterCards } from "@components";
 
 const Agents = () => {
   const [items, setItems] = useState([]);  
@@ -12,8 +12,7 @@ const Agents = () => {
   
   useEffect(() => {
     (async () => {    
-            const url = `${pathname}?${searchParams}`
-            console.log(url)    
+            const url = `${pathname}?${searchParams}`                
             const app = new Realm.App({ id: "citycenter-ossdi"});
             const credentials = Realm.Credentials.anonymous();
             try {
