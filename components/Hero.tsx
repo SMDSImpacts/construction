@@ -21,7 +21,7 @@ const Hero = () => {
         </div>
         <div className="hero__image-container">
         <div className="hero__image">
-          <Image src="/operator3.png" alt="hero" width={400} height={350} className="object-contain image2" />
+          <Image src="/Operator3.png" alt="hero" width={400} height={350} className="object-contain image2" />
           <Image src="/house3.jpg" alt="house 3" width={400} height={350} className="object-contain image1" />          
         </div>        
       </div>            
