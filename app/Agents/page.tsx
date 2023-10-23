@@ -16,8 +16,7 @@ const Agents: React.FC = () => {
       try {
         const user = await app.logIn(credentials);
         const allItems = await user.functions.getItems();
-        setItems(() => allItems);
-        console.log(items)
+        setItems(() => allItems);        
       } catch (error) {
         console.error("failed to log in", error);
       }
