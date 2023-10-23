@@ -10,6 +10,7 @@ const Nav: React.FC = () => {
   const [mobileMenu, setMobileMenu] = useState(false);    
     
   return (
+    <>
     <nav className="flex mt-20 pt-1 border border-sky-200 p-4">
       <div className="flex flex-1 justify-between">
         <Link href="/" className=" hover:cursor-pointer mt-2">
@@ -37,39 +38,40 @@ const Nav: React.FC = () => {
             />
           </Link>
         </div>
-      </div>
-      {/* mobile devices */}
-      <div className=" flex sm:hidden">
-        <button
-          onClick={() => setMobileMenu(!mobileMenu)}
-          type="button"
-          className="text-gray-600 hover:text-gray-500 focus:text-gray-500"
-          aria-label="toggle menu"
-        >
-          <HiOutlineMenu className="h-5 w-5" />
-        </button>
-      </div>
-      <nav
-            className={`${
-              mobileMenu ? "" : "hidden"
-            } sm:flex sm:justify-center sm:items-center mt-4`}
-          >
-            <div className="flex flex-col sm:flex-row">
-              <div className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">
-                <Link href="/Constructions">Constructions</Link>
-              </div>
-              <div className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">
-                <Link href="/Realtors">Realtors</Link>
-              </div>
-              <a
-                className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0"
-                href="Agents"
-              >
-                Agents
-              </a>              
-            </div>
-          </nav>
+      </div>      
     </nav>
+    {/* mobile devices */}
+    <div className=" flex sm:hidden">
+    <button
+      onClick={() => setMobileMenu(!mobileMenu)}
+      type="button"
+      className="text-gray-600 hover:text-gray-500 focus:text-gray-500"
+      aria-label="toggle menu"
+    >
+      <HiOutlineMenu className="h-5 w-5" />
+    </button>
+  </div>
+  <nav
+        className={`${
+          mobileMenu ? "" : "hidden"
+        } sm:flex sm:justify-center sm:items-center mt-4`}
+      >
+        <div className="flex flex-col sm:flex-row">
+          <div className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">
+            <Link href="/Constructions">Constructions</Link>
+          </div>
+          <div className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0">
+            <Link href="/Realtors">Realtors</Link>
+          </div>
+          <a
+            className="mt-3 text-gray-600 hover:underline sm:mx-3 sm:mt-0"
+            href="Agents"
+          >
+            Agents
+          </a>              
+        </div>
+      </nav>
+      </>
   );
 };
 
